@@ -97,6 +97,9 @@ try:
 
             logging.info("Getting skus page token: {}".format(next_page_token))
             skus_data = sku_response_data.get("skus")
+            if skus_data in ["",None]:
+                continue
+
             logging.info("Found {} skus for service {}.".format(len(skus_data), service.get("displayName")))
 
             logging.info("Flattening service and sku data.")
